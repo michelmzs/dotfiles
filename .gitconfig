@@ -1,0 +1,26 @@
+[core]
+  editor = vi
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[init]
+  defaultBranch = main
+[credential]
+  helper = store
+[pull]
+  rebase = true
+[gpg]
+	program = gpg
+
+# iFood
+[includeIf "gitdir:~/ifood/"]
+  path = ~/.gitconfig-ifood
+
+# Personal
+[includeIf "gitdir:~/michelmzs/"]
+  path = ~/.gitconfig-michelmzs
+
