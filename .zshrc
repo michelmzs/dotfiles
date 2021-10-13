@@ -118,3 +118,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Load personal customization
 [[ ! -f ~/.michelmzs.zsh ]] || source ~/.michelmzs.zsh
+
+# Load corp customization
+[[ ! -f ~/.corporate.zsh ]] || source ~/.corporate.zsh
