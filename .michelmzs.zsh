@@ -8,6 +8,7 @@ alias tgia="terragrunt init && terragrunt apply"
 
 alias zreload="source ~/.zshrc"
 alias zedit="vim ~/.zshrc"
+alias rm='echo "Please prefer the trash command."; false'
 
 # Functions
 function tfgrep () {
