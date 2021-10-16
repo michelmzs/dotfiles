@@ -22,3 +22,17 @@ alias rm='echo "Please prefer the trash command."; false'
 function tfgrep () {
 	grep -nir "${1}" --exclude-dir '.terragrunt-cache' --exclude-dir '.terraform' --include='*.tf' --include='*.hcl'
 }
+
+function zsh_history-backup () {
+	# TODO Refactor hard coded paths
+	todays_backups=$(find ~/tmp/ -name "zsh_history_$(date +"%Y-%m-%d")*" | wc -l)
+
+	if [[ $todays_backups -eq 0 ]]; then
+		tar zcvf ~/tmp/zsh_history_$(date +"%Y-%m-%d_%Hh-%Mm").gz ~/.zsh_history &> /dev/null
+			if [[ -d "/mnt/c/backup/wsl" ]]; then
+				current_backup=$(find ~/tmp/ -name "zsh_history_$(date +"%Y-%m-%d")*" | sort -r | head -n 1)
+				cp "$current_backup" /mnt/c/backup/wsl
+			fi
+	fi
+}
+
