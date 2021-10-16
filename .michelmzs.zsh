@@ -36,3 +36,10 @@ function zsh_history-backup () {
 	fi
 }
 
+# Functions executed after terminal load
+
+# ZSH History backup
+zsh_history-backup
+
+# Trash recycle
+trash-empty 90
