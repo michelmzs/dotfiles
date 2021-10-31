@@ -7,18 +7,30 @@ setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 
+# Custom exports
+export AWS_PAGER=""
+
 # Aliases
 alias mdiff="diff -y --suppress-common-lines"
 alias asdf-all="cut -d' ' -f1 .tool-versions|xargs -i asdf plugin-add {}"
 
 alias tp="terragrunt plan"
 alias tgia="terragrunt init && terragrunt apply"
+alias tgf="terragrunt hclfmt"
 
 alias zreload="source ~/.zshrc"
 alias zedit="vim ~/.zshrc"
 alias rm='echo "Please prefer the trash command."; false'
 
 # Functions
+function random-pw () {
+  if [ "$1" -gt 0 ]; then
+    openssl rand -base64 $1
+  else
+    openssl rand -base64 32
+  fi
+}
+
 function tfgrep () {
 	grep -nir "${1}" --exclude-dir '.terragrunt-cache' --exclude-dir '.terraform' --include='*.tf' --include='*.hcl'
 }
