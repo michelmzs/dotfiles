@@ -7,3 +7,4 @@ terragrunt 0.28.24
 kustomize 3.8.9
 kubectl 1.20.2
 kops v1.18.2
+ruby 2.7.4
