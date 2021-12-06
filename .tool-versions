@@ -9,4 +9,3 @@ kubectl 1.20.2
 kubectx 0.9.4
 kops v1.18.2
 helm 3.7.1
-ruby 2.7.4
