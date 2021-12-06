@@ -83,7 +83,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #zstyle :omz:plugins:ssh-agent identities id_rsa
 #zstyle :omz:plugins:ssh-agent agent-forwarding on
 
-plugins=(git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent)
+plugins=(git aws asdf virtualenv kubectl ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 

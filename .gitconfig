@@ -23,3 +23,5 @@
 # Personal
 [includeIf "gitdir:~/michelmzs/"]
   path = ~/.gitconfig-michelmzs
+[url "https://github.com"]
+	insteadOf = ssh://git@github.com

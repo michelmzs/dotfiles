@@ -9,14 +9,17 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 
 # Custom exports
 export AWS_PAGER=""
+unset TERRAGRUNT_DOWNLOAD
+# export TERRAGRUNT_DOWNLOAD="$HOME/.terraform.d/terragrunt-cache/"
 
 # Aliases
 alias mdiff="diff -y --suppress-common-lines"
-alias asdf-all="cut -d' ' -f1 .tool-versions|xargs -i asdf plugin-add {}"
+alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I asdf plugin-add {}"
 
-alias tp="terragrunt plan"
+alias tgp="terragrunt plan"
 alias tgia="terragrunt init && terragrunt apply"
 alias tgf="terragrunt hclfmt"
+alias tgcc="find . -type d -name '.terragrunt-cache' -prune -exec rm -rf {} \;"
 
 alias zreload="source ~/.zshrc"
 alias zedit="vim ~/.zshrc"
@@ -31,18 +34,22 @@ function random-pw () {
   fi
 }
 
+function mgrep () {
+	grep -nir "${1}" --exclude-dir '.terragrunt-cache' --exclude-dir '.terraform' --exclude-dir '.*/'
+}
+
 function tfgrep () {
 	grep -nir "${1}" --exclude-dir '.terragrunt-cache' --exclude-dir '.terraform' --include='*.tf' --include='*.hcl'
 }
 
 function zsh_history-backup () {
 	# TODO Refactor hard coded paths
-	todays_backups=$(find ~/tmp/ -name "zsh_history_$(date +"%Y-%m-%d")*" | wc -l)
+	todays_backups=$(find ~/tmp/backups/ -name "zsh_history_$(date +"%Y-%m-%d")*" | wc -l)
 
 	if [[ $todays_backups -eq 0 ]]; then
-		tar zcvf ~/tmp/zsh_history_$(date +"%Y-%m-%d_%Hh-%Mm").gz ~/.zsh_history &> /dev/null
+		tar zcvf ~/tmp/backups/zsh_history_$(date +"%Y-%m-%d_%Hh-%Mm").gz ~/.zsh_history &> /dev/null
 			if [[ -d "/mnt/c/backup/wsl" ]]; then
-				current_backup=$(find ~/tmp/ -name "zsh_history_$(date +"%Y-%m-%d")*" | sort -r | head -n 1)
+				current_backup=$(find ~/tmp/backups/ -name "zsh_history_$(date +"%Y-%m-%d")*" | sort -r | head -n 1)
 				cp "$current_backup" /mnt/c/backup/wsl
 			fi
 	fi
