@@ -14,7 +14,7 @@ unset TERRAGRUNT_DOWNLOAD
 
 # Aliases
 alias mdiff="diff -y --suppress-common-lines"
-alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I asdf plugin-add {}"
+alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I{} asdf plugin-add {}"
 
 alias tgp="terragrunt plan"
 alias tgia="terragrunt init && terragrunt apply"
