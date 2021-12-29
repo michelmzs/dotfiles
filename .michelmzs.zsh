@@ -9,6 +9,7 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 
 # Custom exports
 export AWS_PAGER=""
+export KUBE_EDITOR="code -w"
 unset TERRAGRUNT_DOWNLOAD
 # export TERRAGRUNT_DOWNLOAD="$HOME/.terraform.d/terragrunt-cache/"
 
@@ -61,4 +62,4 @@ function zsh_history-backup () {
 zsh_history-backup
 
 # Trash recycle
-trash-empty 90
+# trash-empty 90
