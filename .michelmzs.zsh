@@ -14,6 +14,8 @@ unset TERRAGRUNT_DOWNLOAD
 # export TERRAGRUNT_DOWNLOAD="$HOME/.terraform.d/terragrunt-cache/"
 
 # Aliases
+if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx';fi
+
 alias mdiff="diff -y --suppress-common-lines"
 alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I{} asdf plugin-add {}"
 
@@ -21,6 +23,7 @@ alias tgp="terragrunt plan"
 alias tgia="terragrunt init && terragrunt apply"
 alias tgf="terragrunt hclfmt"
 alias tgcc="find . -type d -name '.terragrunt-cache' -prune -exec rm -rf {} \;"
+alias tguk="terragrunt force-unlock"
 
 alias zreload="source ~/.zshrc"
 alias zedit="vim ~/.zshrc"

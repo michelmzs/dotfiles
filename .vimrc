@@ -11,6 +11,7 @@ set showmatch           " show matching brackets
 set autoindent smartindent  " auto/smart indent
 set smarttab            " better backspace and tab functionality
 set scrolloff=5         " show at least 5 lines above/below
+set clipboard=unnamedplus
 filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
@@ -33,6 +34,7 @@ set visualbell          " but leave on a visual bell
 " search
 set hlsearch            " highlighted search results
 set showmatch           " show matching bracket
+
 " shortcuts
 noremap ww :w<CR>
 noremap qq :q!<CR>
