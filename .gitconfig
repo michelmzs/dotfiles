@@ -20,6 +20,9 @@
 [includeIf "gitdir:~/ifood/"]
   path = ~/.gitconfig-ifood
 
+[includeIf "gitdir:~/ifood-dr/"]
+  path = ~/.gitconfig-ifood
+
 # Personal
 [includeIf "gitdir:~/michelmzs/"]
   path = ~/.gitconfig-michelmzs

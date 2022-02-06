@@ -2,7 +2,7 @@ awscli 2.4.5
 golang 1.16.4
 nodejs lts
 terraform 0.14.11
-vault 1.7.3
+vault 1.9.2
 terragrunt 0.28.24
 kustomize 3.8.9
 kubectl 1.20.2
@@ -10,3 +10,4 @@ kubectx 0.9.4
 kops v1.18.2
 helm 3.7.1
 k9s 0.25.18
+packer 1.7.8

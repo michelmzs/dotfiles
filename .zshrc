@@ -76,7 +76,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #zstyle :omz:plugins:ssh-agent identities id_rsa
 #zstyle :omz:plugins:ssh-agent agent-forwarding on
 
-plugins=(git aws asdf virtualenv kubectl ssh-agent)
+ZSH_TMUX_AUTOSTART="false"
+ZSH_TMUX_AUTOCONNECT="false"
+
+plugins=(tmux git aws asdf virtualenv kubectl ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,3 +117,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Load corp customization
 [[ ! -f ~/.corporate.zsh ]] || source ~/.corporate.zsh
+
