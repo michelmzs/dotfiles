@@ -23,12 +23,12 @@ if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx'; fi
 alias mdiff="diff -y --suppress-common-lines"
 alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I{} asdf plugin-add {}"
 
+# Terragrunt
 alias tgp="terragrunt plan"
 alias tgia="terragrunt init && terragrunt apply"
 alias tgf="terragrunt hclfmt"
 alias tguk="terragrunt force-unlock"
-alias tgcc="find . -type d -name '.terragrunt-cache' -prune -exec rm -rf {} \;"
-alias tgcl="find . -type f -name '.terraform.lock.hcl' -prune -exec rm -rf {} \;"
+alias tgcc="find . -type d -name '.terragrunt-cache' -o -name '.terraform.lock.hcl' -prune -exec rm -rf {} \;"
 
 alias zreload="omz reload"
 alias zedit="vim ~/.zshrc"
@@ -52,12 +52,8 @@ function tfgrep() {
 }
 
 function ssl-date-check() {
+	# WIP
 	echo | openssl s_client -servername $hostname -connect $hostname:$port -starttls $type 2>/dev/null | openssl x509 -noout -dates
-}
-
-function sshm() {
-	host=$1
-	ssh michel.santello@"${host}"
 }
 
 function podman-cleanup() {
