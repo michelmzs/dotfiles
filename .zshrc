@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="false"
 
-plugins=(tmux git aws asdf virtualenv kubectl ssh-agent)
+plugins=(tmux git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,3 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # Load corp customization
 [[ ! -f ~/.corporate.zsh ]] || source ~/.corporate.zsh
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/michel/.asdf/installs/vault/1.9.2/bin/vault vault

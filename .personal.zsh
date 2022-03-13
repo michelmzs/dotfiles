@@ -28,8 +28,8 @@ alias tgp="terragrunt plan"
 alias tgia="terragrunt init && terragrunt apply"
 alias tgf="terragrunt hclfmt"
 alias tguk="terragrunt force-unlock"
-alias tgcc="find . -type d -name '.terragrunt-cache' -o -name '.terraform.lock.hcl' -prune -exec rm -rf {} \;"
-
+alias tgcl="find . -type d -name '.terraform.lock.hcl' -prune -exec rm -rf {} \;"
+alias tgcc="find . -type d -name '.terragrunt-cache' -prune -exec rm -rf {} \;"
 alias zreload="omz reload"
 alias zedit="vim ~/.zshrc"
 alias rm='echo "Please prefer the trash command."; false'
