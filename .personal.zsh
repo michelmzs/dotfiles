@@ -23,8 +23,12 @@ if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx'; fi
 alias mdiff="diff -y --suppress-common-lines"
 alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I{} asdf plugin-add {}"
 
+# Tools
+
 # Terragrunt
 alias tgp="terragrunt plan"
+alias tgpw="terragrunt plan --terragrunt-working-dir"
+alias tgaw="terragrunt apply --terragrunt-working-dir"
 alias tgia="terragrunt init && terragrunt apply"
 alias tgf="terragrunt hclfmt"
 alias tguk="terragrunt force-unlock"
