@@ -11,9 +11,6 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry.
 export AWS_PAGER=""
 export KUBE_EDITOR="code -w"
 
-# https://github.com/ohmyzsh/ohmyzsh/pull/9090
-export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump-${(%):-%m}-${ZSH_VERSION}"
-
 unset TERRAGRUNT_DOWNLOAD
 # export TERRAGRUNT_DOWNLOAD="$HOME/.terraform.d/terragrunt-cache/"
 
