@@ -58,9 +58,10 @@ function ssl-date-check() {
 }
 
 function podman-cleanup() {
-	podman container cleanup -a
-	podman volume prune
-	podman image prune
+  podman system prune -a
+ # podman container cleanup -a
+ # podman volume prune
+ # podman image prune
 }
 
 # Functions executed after terminal load
