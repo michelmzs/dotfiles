@@ -18,7 +18,7 @@ unset TERRAGRUNT_DOWNLOAD
 if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx'; fi
 
 alias mdiff="diff -y --suppress-common-lines"
-alias asdf-all="cut -d ' ' -f1 .tool-versions | xargs -I{} asdf plugin-add {}"
+alias asdf-all="grep -v '^#' .tool-versions | cut -d ' ' -f 1 | xargs -I '{}' asdf plugin-add '{}'"
 
 # Tools
 
@@ -58,15 +58,27 @@ function ssl-date-check() {
 }
 
 function podman-cleanup() {
-  podman system prune -a
- # podman container cleanup -a
- # podman volume prune
- # podman image prune
+	podman system prune -a
+	# podman container cleanup -a
+	# podman volume prune
+	# podman image prune
+}
+
+function qrcode-gen() {
+	if [ "$#" -ne 1 ]; then
+		echo "Invalid number of arguments; Aborting..."
+		echo "Usage: qrcode-gen 'text'"
+	else
+		current_time=$(date +"%Y-%m-%d-%Hh-%Mm-%Ss")
+		destination="$HOME/Downloads/qrcode-gen_${current_time}.png"
+		qr "$1" >"$destination"
+		echo "QRcode generated at ${destination}"
+	fi
 }
 
 # Functions executed after terminal load
 
-# Trash recycle 
+# Trash recycle
 # TODO move to systemd timer
 
 # trash-empty 90

@@ -1,6 +1,6 @@
 awscli 2.4.5
 golang 1.17
-nodejs lts
+nodejs 16.16.0
 terraform 0.14.11
 vault 1.9.2
 terragrunt 0.28.24
