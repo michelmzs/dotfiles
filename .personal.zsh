@@ -64,6 +64,11 @@ function podman-cleanup() {
 	# podman image prune
 }
 
+function cdd() {
+  destination=$(dirname "$1")
+  cd $destination
+}
+
 function qrcode-gen() {
 	if [ "$#" -ne 1 ]; then
 		echo "Invalid number of arguments; Aborting..."
