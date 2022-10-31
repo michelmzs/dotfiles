@@ -10,6 +10,7 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry.
 # Custom exports
 export AWS_PAGER=""
 export KUBE_EDITOR="code -w"
+export EDITOR=vi
 
 unset TERRAGRUNT_DOWNLOAD
 # export TERRAGRUNT_DOWNLOAD="$HOME/.terraform.d/terragrunt-cache/"
@@ -66,7 +67,12 @@ function podman-cleanup() {
 
 function cdd() {
   destination=$(dirname "$1")
-  cd $destination
+  error_msg="$destination does not exist"
+  if test -d $destination; then
+	cd $destination
+  else
+	echo $fg[red]"${error_msg}"$reset_color 
+  fi
 }
 
 function qrcode-gen() {
