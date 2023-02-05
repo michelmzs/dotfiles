@@ -9,7 +9,7 @@ helmdiff 3.5.0
 helmfile 0.145.4 0.137.0
 k9s 0.25.18
 kops v1.22.5
-kubectl 1.21.13 1.20.2
+kubectl 1.21.14
 kubectx 0.9.4
 kustomize 3.8.9
 make 4.4
