@@ -10,7 +10,8 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks before recording entry.
 # Custom exports
 export AWS_PAGER=""
 export KUBE_EDITOR="code -w"
-export EDITOR=vi
+export EDITOR="code -w"
+# export EDITOR=vi
 
 unset TERRAGRUNT_DOWNLOAD
 # export TERRAGRUNT_DOWNLOAD="$HOME/.terraform.d/terragrunt-cache/"
@@ -18,7 +19,7 @@ unset TERRAGRUNT_DOWNLOAD
 # Aliases
 if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx'; fi
 
-alias mdiff="diff -y --suppress-common-lines"
+alias mdiff="diff -y --suppress-common-lines --color"
 alias asdf-all="grep -v '^#' .tool-versions | cut -d ' ' -f 1 | xargs -I '{}' asdf plugin-add '{}'"
 
 # Tools

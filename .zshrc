@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/go/bin:$PATH
-
 # https://github.com/ohmyzsh/ohmyzsh/pull/9090
 export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
@@ -82,7 +81,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="false"
 
-plugins=(tmux git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent)
+plugins=(tmux git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent qrcode)
 
 source $ZSH/oh-my-zsh.sh
 
