@@ -25,6 +25,7 @@ alias asdf-all="grep -v '^#' .tool-versions | cut -d ' ' -f 1 | xargs -I '{}' as
 # Tools
 
 # Terragrunt
+alias tg="terragrunt"
 alias tgp="terragrunt plan"
 alias tgpw="terragrunt plan --terragrunt-working-dir"
 alias tgaw="terragrunt apply --terragrunt-working-dir"
