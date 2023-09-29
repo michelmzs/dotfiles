@@ -82,7 +82,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="false"
 
-plugins=(tmux git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent qrcode)
+plugins=(tmux git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent qrcode fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,3 +128,4 @@ complete -o nospace -C /home/michel/.asdf/installs/vault/1.9.2/bin/vault vault
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=/home/michel/.local/bin:${PATH}

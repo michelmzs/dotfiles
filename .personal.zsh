@@ -1,6 +1,6 @@
 # ZSH History
-HISTSIZE=500000
-SAVEHIST=500000
+HISTSIZE=5000000
+SAVEHIST=5000000
 setopt INC_APPEND_HISTORY   # Write to the history file immediately, not when the shell exits.
 setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_FIND_NO_DUPS    # Do not display a line previously found.
@@ -23,6 +23,8 @@ alias mdiff="diff -y --suppress-common-lines --color"
 alias asdf-all="grep -v '^#' .tool-versions | cut -d ' ' -f 1 | xargs -I '{}' asdf plugin-add '{}'"
 
 # Tools
+alias mcpu-freq="watch -n 0.1 'cpupower frequency-info |grep asserted'"
+alias svenv="source venv/bin/activate"
 
 # Terragrunt
 alias tg="terragrunt"
@@ -32,13 +34,17 @@ alias tgaw="terragrunt apply --terragrunt-working-dir"
 alias tgia="terragrunt init && terragrunt apply"
 alias tgf="terragrunt hclfmt"
 alias tguk="terragrunt force-unlock"
-alias tgcl="find . -type d -name '.terraform.lock.hcl' -prune -exec rm -rf {} \;"
-alias tgcc="find . -type d -name '.terragrunt-cache' -prune -exec rm -rf {} \;"
 alias zreload="omz reload"
 alias zedit="vim ~/.zshrc"
 alias rm='echo "Please prefer the trash command."; false'
 
 # Functions
+
+function tgcc() {
+	find . -type f -name '.terraform.lock.hcl' -prune -exec rm -rf {} \;
+	find . -type d -name '.terragrunt-cache' -prune -exec rm -rf {} \;
+}
+
 function random-pw() {
 	if [ "$1" -gt 0 ]; then
 		openssl rand -base64 $1
@@ -68,13 +74,13 @@ function podman-cleanup() {
 }
 
 function cdd() {
-  destination=$(dirname "$1")
-  error_msg="$destination does not exist"
-  if test -d $destination; then
-	cd $destination
-  else
-	echo $fg[red]"${error_msg}"$reset_color 
-  fi
+	destination=$(dirname "$1")
+	error_msg="$destination does not exist"
+	if test -d $destination; then
+		cd $destination
+	else
+		echo $fg[red]"${error_msg}"$reset_color
+	fi
 }
 
 function qrcode-gen() {
@@ -88,10 +94,3 @@ function qrcode-gen() {
 		echo "QRcode generated at ${destination}"
 	fi
 }
-
-# Functions executed after terminal load
-
-# Trash recycle
-# TODO move to systemd timer
-
-# trash-empty 90
