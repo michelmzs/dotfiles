@@ -82,7 +82,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="false"
 
-plugins=(tmux git aws asdf virtualenv virtualenvwrapper kubectl ssh-agent qrcode fzf)
+plugins=(tmux git aws asdf virtualenv kubectl ssh-agent qrcode fzf git-commit)
 
 source $ZSH/oh-my-zsh.sh
 
